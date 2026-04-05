@@ -1,11 +1,50 @@
 body,
 html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100dvh;
+}
+
+.main {
+
+  width: 100%;
+  height: 100dvh;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em 0;
+}
+
+.content {
+  width: 100%;
+  position: relative;
+}
+
+.footer {
+  margin-top: 4em;
+  display: flex !important;
+  justify-content: end;
+  align-items: center;
+}
+
+.inp-group2 {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head {
+
   text-align: center;
-  margin-bottom: 2em;
+
 }
 
 .head1 {
-  margin-bottom: 4em;
+
   opacity: 0.8 !important;
 }
 
@@ -32,11 +71,6 @@ h2 {
 
 }
 
-.head {
-  margin-bottom: 5em;
-
-}
-
 .s2 {
   font-size: small;
 }
@@ -54,8 +88,7 @@ h2 {
 }
 
 .micro1 {
-  margin-top: 6em !important;
-  margin-left: 1em;
+
   opacity: 0.8;
 
 }
@@ -69,6 +102,7 @@ h2 {
   position: absolute !important;
   bottom: 0em;
   right: 1em;
+  z-index: 2;
 }
 
 #loading-icon {
@@ -117,9 +151,9 @@ h2 {
   text-align: left;
   position: relative;
   top: 2em;
-  left: 55%;
-  transform: translateX(-55%);
-  max-width: 60%;
+  left: 40%;
+  transform: translateX(-40%);
+  max-width: 70%;
   background-color: #cbd2d8;
   padding: 1em;
   border-radius: 1em;
@@ -132,16 +166,16 @@ h2 {
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
 
+
   .delaydiv1 {
-    text-align: left;
-    position: relative;
-    top: 1.2em;
-    left: 93%;
-    transform: translateX(-93%);
-    max-width: 30%;
-    background-color: #cbd2d8;
-    padding: 1em;
-    border-radius: 1em;
+
+    font-size: 1.2em !important;
+    top: 1.5em;
+    left: 40%;
+    transform: translateX(-40%);
+    max-width: 40% !important;
+    z-index: 1;
+
   }
 
   .head1 {
@@ -213,10 +247,7 @@ h2 {
 
   }
 
-  .head {
-    margin-bottom: 5em;
 
-  }
 
   .s2 {
     font-size: small;
@@ -322,18 +353,26 @@ input[type="number"]:invalid {
 
 
 
+@media only screen and (min-width: 1280px) {
+  .head {
+    margin-bottom: 3em;
+  }
 
-@media only screen and (min-width: 768px) {
+  .main {
+    justify-content: center;
+
+    padding: 0;
+  }
+
   .delaydiv1 {
-    text-align: left;
-    position: relative;
-    top: 1.2em;
-    left: 93%;
-    transform: translateX(-93%);
-    max-width: 20%;
-    background-color: #cbd2d8;
-    padding: 1em;
-    border-radius: 1em;
+
+
+    top: -1em;
+    left: 45%;
+    transform: translateX(-45%);
+    max-width: 22%;
+    z-index: 1;
+
   }
 
   .dinfo {

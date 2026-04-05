@@ -70,11 +70,17 @@ async function multipleSearch() {
 
   let dcount = 1;
   let isfailed = false;
+  if (localStorage.getItem("delaycat") == "menual") {
+    delay = localStorage.getItem("delay");
+  }
+ 
+  let isRandom = false;
+  if (localStorage.getItem("delaycat") == "random") {
+    isRandom = true;
+  }
   for (let i = 0; i < array.length; i++) {
-    if (localStorage.getItem("delaycat") == "random") {
-      let randomarr = [
-        1500, 2000, 2500, 3000, 3500, 4000, 1500, 1900, 2200, 1300, 3000, 4200,
-      ];
+    if (isRandom) {
+
       let random = Math.floor(Math.random() * randomarr.length);
       delay = randomarr[random];
     }
@@ -96,6 +102,7 @@ async function multipleSearch() {
           tab.close();
         }
       }, delay / 1.1);
+      console.log(delay)
     }, i * delay);
   }
 
@@ -103,23 +110,24 @@ async function multipleSearch() {
     if (!isfailed) {
       bt2.click();
     }
-  }, array.length * 1000);
-  if (isdefault) {
-    setTimeout(() => {
-      if (count >= 2) {
-        number.value = 5;
-        eta.innerHTML = `ETA:${(
-          5 * (delay / 1000) +
-          (delay / 1000) * 4
-        ).toFixed(2)} Sec`;
-      } else {
-        number.value = 10;
-        eta.innerHTML = `ETA:${(
-          10 * (delay / 1000) +
-          (delay / 1000) * 4
-        ).toFixed(2)} Sec`;
-      }
-    }, 5000);
-  }
-  count++;
+  }, array.length * delay);
+
+  // if (isdefault) {
+  //   setTimeout(() => {
+  //     if (count >= 2) {
+  //       number.value = 5;
+  //       eta.innerHTML = `ETA:${(
+  //         5 * (delay / 1000) +
+  //         (delay / 1000) * 4
+  //       ).toFixed(2)} Sec`;
+  //     } else {
+  //       number.value = 10;
+  //       eta.innerHTML = `ETA:${(
+  //         10 * (delay / 1000) +
+  //         (delay / 1000) * 4
+  //       ).toFixed(2)} Sec`;
+  //     }
+  //   }, 5000);
+  // }
+  // count++;
 }

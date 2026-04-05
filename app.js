@@ -3,6 +3,8 @@ const app = express();
 const axios = require("axios");
 const useragent = require("express-useragent");
 const data = require("./public/data/words.json");
+const dotenv = require("dotenv");
+dotenv.config();
 
 app.disable("x-powered-by");
 
@@ -87,7 +89,7 @@ app.use((req, res) => {
   res.status(404).render("404");
 });
 
-const PORT = 9011;
+const PORT = process.env.ENV == "production" ? process.env.PORT : 8000;
 
 app.listen(PORT, (err) => {
   if (err) {

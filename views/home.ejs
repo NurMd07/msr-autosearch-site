@@ -33,13 +33,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="static/css/main.css" />
   </head>
-  <body class="container mt-4" id="container1">
+  <body class="container" id="container1">
+    <div class="main">
     <div class="head">
       <span class="microsoft"></span>
       <h2 class="head1">Complete Microsoft Rewards - Daily Search</h2>
     </div>
     <div
-      class="main gx-1 gx-lg-0 mb-4 mb-md-5 mb-lg-4 row justify-content-center align-items-center"
+      class="content gx-1 gx-lg-0 mb-4 mb-md-5 mb-lg-4 row justify-content-center align-items-center"
     >
       <lable
         class="col-4 col-md-3 col-lg-2 me-2 me-lg-0 col-form-label"
@@ -128,10 +129,10 @@
           PC <% } %>
         </span>
       </div>
-    </div>
-    <span></span>
-    <div style="position: relative">
-      <button
+   
+    <div class="inp-group2" style="position: relative">
+    
+    <button
         title="start multiple searches"
         onclick="multipleSearch()"
         style="letter-spacing: 1px"
@@ -140,6 +141,7 @@
         Start
       </button>
       <span class="eta"></span>
+      
       <span class="text-muted infosearch">
         <span class="btn btn-sm btn-secondary rounded-pill show1">Delay</span>
         <span class="ms-3 btn btn-sm btn-secondary rounded-pill hide1 d-none"
@@ -193,7 +195,7 @@
                 background-color: rgba(0, 0, 0, 0.7);
               "
             >
-              2 sec
+              4 sec
             </lable></label
           >
 
@@ -205,11 +207,11 @@
             autocomplete="off"
           />
           <label
-            class="btn btn-sm btn-outline-danger p2"
+            class="btn btn-sm btn-outline-danger p2 "
             style="position: relative"
             for="btnradio2"
             >Random<lable
-              class="random"
+              class="random px-1"
               style="
                 position: absolute;
                 top: 2.4em;
@@ -218,7 +220,7 @@
                 border-radius: 0.3em;
                 background-color: rgba(0, 0, 0, 0.7);
               "
-              >1.5-4.5 sec</lable
+              > 15 - 21 sec </lable
             ></label
           >
 
@@ -234,7 +236,8 @@
             style="position: relative"
             for="btnradio3"
             >Manual<span class="menual"
-              ><lable
+              >
+              <!-- <lable
                 style="
                   position: absolute;
                   top: 3.15em;
@@ -243,35 +246,37 @@
                   z-index: 5;
                   font-size: 1.1em;
                 "
-                >S</lable
-              ><input
+                >S</lable> -->
+                <div class="sub-container d-flex justify-content-center align-items-center" 
+                style="position: absolute; top: 3em; right: -1em; z-index: 5">
+              <input
                 type="number"
                 min="1"
                 max="20"
                 step="any"
                 pattern="[1-20](\.[0-9])?"
-                class="form-control py-1 minput mt-2"
+                class="form-control   minput me-2 "
                 style="
-                  position: absolute;
-                  top: 2.2em;
-                  left: 0.5em;
+                  font-size: 0.85em;
+                  width: 6em;
                   z-index: 0;
                   border: 1px solid #5c636a;
                 "
               /><button
                 title="apply menual delay"
-                style="position: absolute; top: 3.2em; left: 5.8em"
-                class="btn btn-sm btn-success msave"
+             
+                class="btn btn-sm btn-success msave "
               >
                 Save</button
               ><span class="t1">Success!</span>
+              </div>
             </span>
           </label>
         </div>
       </div>
     </div>
-
-    <div id="container " class="container micro1">
+ </div>
+    <div id="container" class="container footer micro1">
       <a href="https://rewards.bing.com" class="btn btn-secondary msw1"
         >Go To<b> Microsoft | Rewards</b>
         <?xml version="1.0" encoding="utf-8"?>
@@ -294,13 +299,13 @@
         </svg>
       </a>
     </div>
-
+</div>
     <div
       class="modal fade"
       id="exampleModal6"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
+      
     >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -362,7 +367,7 @@
       id="exampleModal"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
+     
     >
       <div class="modal-dialog">
         <div class="modal-content">
@@ -401,7 +406,7 @@
       id="exampleModal3"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
+     
     >
       <div class="modal-dialog">
         <div class="modal-content">
@@ -493,10 +498,14 @@
       }
 
 
-      number.value= searchValue;
+      number.value = searchValue;
 
       const storedValue = localStorage.getItem("sv");
       const storedDelay = localStorage.getItem("delay");
+    if(storedValue){
+      number.value = storedValue;
+    }
+
     </script>
 
     <script src="static/js/eta.js"></script>
@@ -521,15 +530,16 @@
           eta.innerHTML = `ETA: _`;
           return;
         }
-        eta.innerHTML = `ETA:${(
-          num1 * (delay / 1000) +
-          (delay / 1000) * 4
-        ).toFixed(2)} Sec`;
-        if (localStorage.getItem("delaycat") == "random") {
-          eta.innerHTML = `ETA:${(
-            num1 * (delay / 1000) +
-            (delay / 1000) * 4
-          ).toFixed(2)} Sec <span class="dinfo">(Random Delay)</span>`;
+       
+        if(localStorage.getItem("delaycat") == "default" || (localStorage.getItem("delaycat") != "random" && localStorage.getItem("delaycat") != "menual")){
+       getEta("default");
+       console.log("default")
+        }else if (localStorage.getItem("delaycat") == "random") {
+       getEta("random");
+
+        }else{
+          console.log(localStorage.getItem("delaycat"))
+       getEta("menual");
         }
       });
 

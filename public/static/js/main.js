@@ -20,6 +20,10 @@ let bt4 = document.querySelector("#bt4");
 let number = document.querySelector("#number");
 
 let defaultz = document.querySelector(".defaultz");
+let defaultDelay = 4 * 1000;
+ let randomarr = [
+    15100, 16200, 17000, 18600, 19400, 20100, 21000
+  ];
 
 delayinfo.addEventListener("click", () => {
   bt6.click();
@@ -46,12 +50,12 @@ if (localStorage.getItem("d1") == "hide") {
     delaydiv.classList.add("visible-element");
     show1.style.display = "none";
     hide1.classList.remove("d-none");
-    micro1.style = "margin-top:6em";
+
   }
   delaydiv.classList.add("delaydiv1");
 }
 hide1.addEventListener("click", () => {
-  micro1.style = "margin-top:5em";
+ 
   delaydiv.classList.add("hidden-element");
   delaydiv.classList.remove("visible-element");
   show1.style.display = "block";
@@ -59,7 +63,7 @@ hide1.addEventListener("click", () => {
   hide1.classList.add("d-none");
 });
 show1.addEventListener("click", () => {
-  micro1.style = "margin-top:6em";
+ 
   show1.style.display = "none";
   delaydiv.classList.remove("hidden-element");
   delaydiv.classList.add("visible-element");
@@ -72,7 +76,7 @@ p1.addEventListener("click", () => {
   random.style.display = "none";
   menual.style.display = "none";
   localStorage.setItem("delaycat", "default");
-  localStorage.setItem("delay", 2 * 1000);
+  localStorage.setItem("delay",defaultDelay);
   if (firstcheck) {
     firstcheck = false;
   } else {
@@ -108,7 +112,7 @@ function outfocus() {
 }
 if (localStorage.getItem("delaycat") == null) {
   localStorage.setItem("delaycat", "default");
-  localStorage.setItem("delay", 2 * 1000);
+  localStorage.setItem("delay", defaultDelay);
 }
 if (localStorage.getItem("delaycat") == "default") {
   p1.click();
