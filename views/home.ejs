@@ -36,17 +36,20 @@
   <body class="container" id="container1">
     <div class="main">
     <div class="head">
-      <span class="microsoft"></span>
-      <h2 class="head1">Complete Microsoft Rewards - Daily Search</h2>
+      <div class="logo-container">
+      <span class="microsoft"></span></div>
+      <h1 class="head1">Complete Microsoft Rewards - Daily Search</h1>
+      <p class="head-caption">Set your search count and delay, then start.</p>
     </div>
     <div
       class="content gx-1 gx-lg-0 mb-4 mb-md-5 mb-lg-4 row justify-content-center align-items-center"
     >
-      <lable
+      <label
         class="col-4 col-md-3 col-lg-2 me-2 me-lg-0 col-form-label"
         id="subhead1"
-        >Search Number :
-      </lable>
+        for="number"
+        >Search count</label
+      >
       <div style="position: relative !important" class="col-4 col-lg-2">
         <input
           class="form-control text-center"
@@ -143,29 +146,55 @@
       <span class="eta"></span>
       
       <span class="text-muted infosearch">
-        <span class="btn btn-sm btn-secondary rounded-pill show1">Delay</span>
-        <span class="ms-3 btn btn-sm btn-secondary rounded-pill hide1 d-none"
-          >Hide</span
-        >
+        <button type="button" class="btn btn-sm btn-secondary rounded-pill show1" aria-label="Show delay options">
+          <span class="delay-button-content">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 3.5a.5.5 0 0 1 .5.5v3.25l2.25 1.35a.5.5 0 0 1-.5.866l-2.5-1.5A.5.5 0 0 1 7.5 7.5V4a.5.5 0 0 1 .5-.5"/>
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m0-1A7 7 0 1 1 8 1a7 7 0 0 1 0 14"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mobile-delay-icon" viewBox="0 0 16 16" aria-hidden="true">
+              <circle cx="8" cy="9" r="6"/>
+              <path d="M8 6v3l2 1M6.5 1h3M8 1v2M12.5 4.5 14 3"/>
+            </svg>
+            <span>Delay</span>
+          </span>
+        </button>
+        <button type="button" class="btn btn-sm btn-secondary rounded-pill hide1 d-none" aria-label="Hide delay options">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M1 8s2.5-4 7-4 7 4 7 4-2.5 4-7 4-7-4-7-4z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="8" cy="8" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="m2 2 12 12" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <span>Hide</span>
+        </button>
       </span>
     </div>
+    </div>
+    <div class="delay-layout">
     <div class="delaydiv delaydiv1" style="opacity: 0">
       <div class="d-inline">
-        <span class="" style="font-size: 1.1em; font-weight: 500"
-          >Delay<small>
-            (sec)
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              fill="currentColor"
-              class="bi bi-info-circle-fill text-secondary delayinfo"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
-              /></svg></small
-        ></span>
+        <div class="delay-header">
+          <span class="delay-title">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 16 16" aria-hidden="true">
+              <circle cx="8" cy="8" r="6.5"/>
+              <path d="M8 4.5V8l2.5 1.5"/>
+            </svg>
+            <span>Delay<small>
+              (sec)
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="10"
+                height="10"
+                fill="currentColor"
+                class="bi bi-info-circle-fill text-secondary delayinfo"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+                /></svg></small></span>
+          </span>
+          <button type="button" class="btn-close delay-close" aria-label="Close delay settings"></button>
+        </div>
         <div
           class="btn-group d-flex justify-content-start align-items-center mt-2"
           role="group"
@@ -184,7 +213,7 @@
             style="position: relative"
             for="btnradio1"
             >Default
-            <lable
+            <span
               class="px-1 py-1 default"
               style="
                 position: absolute;
@@ -196,7 +225,7 @@
               "
             >
               4 sec
-            </lable></label
+            </span></label
           >
 
           <input
@@ -210,7 +239,7 @@
             class="btn btn-sm btn-outline-danger p2 "
             style="position: relative"
             for="btnradio2"
-            >Random<lable
+            >Random<span
               class="random px-1"
               style="
                 position: absolute;
@@ -220,7 +249,7 @@
                 border-radius: 0.3em;
                 background-color: rgba(0, 0, 0, 0.7);
               "
-              > 15 - 21 sec </lable
+              >15.1–21 sec</span
             ></label
           >
 
@@ -235,47 +264,28 @@
             class="btn btn-sm btn-outline-primary p3"
             style="position: relative"
             for="btnradio3"
-            >Manual<span class="menual"
-              >
-              <!-- <lable
-                style="
-                  position: absolute;
-                  top: 3.15em;
-                  left: 3em;
-                  color: black;
-                  z-index: 5;
-                  font-size: 1.1em;
-                "
-                >S</lable> -->
-                <div class="sub-container d-flex justify-content-center align-items-center" 
-                style="position: absolute; top: 3em; right: -1em; z-index: 5">
+            >Manual</label>
+            <span class="menual">
+              <span class="sub-container d-flex justify-content-center align-items-center">
               <input
                 type="number"
                 min="1"
                 max="20"
                 step="any"
                 pattern="[1-20](\.[0-9])?"
-                class="form-control   minput me-2 "
-                style="
-                  font-size: 0.85em;
-                  width: 6em;
-                  z-index: 0;
-                  border: 1px solid #5c636a;
-                "
+                class="form-control minput me-2"
+                aria-label="Manual delay in seconds"
               /><button
-                title="apply menual delay"
-             
-                class="btn btn-sm btn-success msave "
+                title="Apply manual delay"
+                class="btn btn-sm btn-success msave"
               >
-                Save</button
-              ><span class="t1">Success!</span>
-              </div>
+                Apply</button
+              ><span class="t1" role="status">Saved</span>
+              </span>
             </span>
-          </label>
         </div>
       </div>
     </div>
- </div>
     <div id="container" class="container footer micro1">
       <a href="https://rewards.bing.com" class="btn btn-secondary msw1"
         >Go To<b> Microsoft | Rewards</b>
@@ -299,55 +309,63 @@
         </svg>
       </a>
     </div>
+    </div>
 </div>
     <div
       class="modal fade"
       id="exampleModal6"
       tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      
+      aria-labelledby="delayInfoModalLabel"
+      aria-hidden="true"
     >
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog modal-dialog-centered delay-info-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Delay (info)</h5>
+            <div>
+              <p class="modal-eyebrow">SEARCH SETTINGS</p>
+              <h5 class="modal-title" id="delayInfoModalLabel">Delay options</h5>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
-            <span class="d-block">
-              <b>Default Option:</b>This option sets a default delay of
-              <b> 2 seconds </b>for Each Search/Opened tab.This is the default
-              delay and it ensures fast auto search on most devices with
-              variable net speeds
-            </span>
-
-            <span class="d-block">
-              <b>Random Option:</b> Selecting this option will sets random delay
-              between <b> 1s to 4.5s seconds</b> for Each Search/Opened
-              tab.Using this option, time for autosearch may varry.</span
-            >
-
-            <span class="d-block">
-              <b> Manual Option: </b>By clicking on this option, users can
-              manually set their preferred delay range for Each Search/opened
-              tabs. Users have the flexibility to adjust the delay time between
-              <b> 1 second and 20 seconds </b> according to their
-              preferences.</span
-            >
+            <p class="delay-option">
+              <span class="delay-option-icon delay-option-default" aria-hidden="true">D</span>
+              <span>
+                <strong>Default</strong>
+                <span>Each search tab closes after 4 seconds, before the next opens.</span>
+              </span>
+            </p>
+            <p class="delay-option">
+              <span class="delay-option-icon delay-option-random" aria-hidden="true">R</span>
+              <span>
+                <strong>Random</strong>
+                <span>Each tab stays open for a random 15.1–21 seconds, then closes before the next opens.</span>
+              </span>
+            </p>
+            <p class="delay-option">
+              <span class="delay-option-icon delay-option-manual" aria-hidden="true">M</span>
+              <span>
+                <strong>Manual</strong>
+                <span>Choose how long each tab stays open (1–20 seconds); it closes before the next opens.</span>
+              </span>
+            </p>
+            <div class="delay-note">
+              Searches run one at a time. Each tab closes after its selected
+              interval before the next search starts.
+            </div>
           </div>
           <div class="modal-footer">
-            <span class="text-muted"
-              ><small
-                >Each Opened Search/tab is closed after<br />
-                (delay x 2.3sec)</small
-              >
-            </span>
             <button
-              title="close model"
               type="button"
-              class="btn btn-secondary"
+              class="btn btn-primary px-4"
               data-bs-dismiss="modal"
             >
-              Close
+              Got it
             </button>
           </div>
         </div>

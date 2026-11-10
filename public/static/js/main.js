@@ -13,6 +13,7 @@ let minput = document.querySelector(".minput");
 let firstcheck = true;
 let t1 = document.querySelector(".t1");
 let delayinfo = document.querySelector(".delayinfo");
+let delayClose = document.querySelector(".delay-close");
 let bt6 = document.querySelector("#bt6");
 
 let bt2 = document.querySelector("#bt2");
@@ -50,18 +51,21 @@ if (localStorage.getItem("d1") == "hide") {
     delaydiv.classList.add("visible-element");
     show1.style.display = "none";
     hide1.classList.remove("d-none");
+    hide1.classList.add("is-active");
 
   }
   delaydiv.classList.add("delaydiv1");
 }
-hide1.addEventListener("click", () => {
- 
+function closeDelaySettings() {
   delaydiv.classList.add("hidden-element");
   delaydiv.classList.remove("visible-element");
   show1.style.display = "block";
   localStorage.setItem("d1", "hide");
   hide1.classList.add("d-none");
-});
+  hide1.classList.remove("is-active");
+}
+hide1.addEventListener("click", closeDelaySettings);
+delayClose.addEventListener("click", closeDelaySettings);
 show1.addEventListener("click", () => {
  
   show1.style.display = "none";
@@ -70,6 +74,7 @@ show1.addEventListener("click", () => {
   localStorage.setItem("d1", "show");
   delaydiv.classList.add("delaydiv1");
   hide1.classList.remove("d-none");
+  hide1.classList.add("is-active");
 });
 p1.addEventListener("click", () => {
   default1.style.display = "block";

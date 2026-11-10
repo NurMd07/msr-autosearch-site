@@ -45,7 +45,7 @@ app.get("/", async (req, res) => {
     );
 
     if (!ipinfo.data || !ipinfo.data.hasOwnProperty("countryCode")) {
-      res.render("home", { country_code: "unavailable", isMobile: isMobile });
+      res.render("home", { country_code: "N/A", isMobile: isMobile });
       throw new Error("ipinfo error");
     }
 
